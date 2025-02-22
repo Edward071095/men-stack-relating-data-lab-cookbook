@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add a New Item</title>
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Add a New Recipe</h1>
+  </body>
+  <!-- views/applications/new.ejs -->
+
+<form action="/users/<%= user._id %>/pantry" method="POST">
+    <label for="food">Food:</label>
+    <input type="text" name="food" id="food" />
+  
+    <label for="ingredients">Ingredients:</label>
+    <input type="text" name="ingredients" id="ingredients" />
+  
+    <!-- <label for="notes">Notes:</label>
+    <textarea name="notes" id="notes"></textarea> -->
+  
+    <label for="seasoning">Seasoning:</label>
+    <input type="text" name="seasoning" id="seasoning" />
+  
+    <label for="drinkWith">Should Drink With:</label>
+    <select id="drinkWith" name="drinkWith">
+      <option value="milk">Milk</option>
+      <option value="juice">Juice</option>
+      <option value="water">Water</option>
+    </select>
+    <button type="submit">Add Recipe To Pantry</button>
+  </form>
+  
+</html>

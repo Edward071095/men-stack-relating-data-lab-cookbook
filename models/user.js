@@ -1,9 +1,21 @@
 const mongoose = require('mongoose');
 
-const foodSchema = new mongoose.Schema({
-  pantry: {
+const pantrySchema = new mongoose.Schema({
+  food: {
     type: String,
     required: true,
+  },
+  ingredients: {
+    type: String,
+    required: true,
+  },
+  seasoning: {
+    type: String,
+    required: true,
+  },
+  drinkWith: {
+    type: String,
+    enum: ['milk', 'juice', 'water'],
   },
 });
 
@@ -16,7 +28,7 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  foods: [foodSchema], // embedding the applicationSchema here
+  pantry: [pantrySchema], // embedding the applicationSchema here
 
 });
 

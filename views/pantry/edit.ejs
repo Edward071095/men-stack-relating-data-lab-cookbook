@@ -1,0 +1,76 @@
+<!-- views/applications/edit.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editing <%= item.food %></title>
+</head>
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+  <h1>Edit <%= item.food %> </h1> 
+  <p><%= item.ingredients %></p>
+  <ul>
+    <li>
+  <form
+    action="/users/<%= user._id %>/pantry/<%= item._id %>?_method=PUT"
+    method="POST"
+  >
+    <label for="food">Food:</label>
+    <input
+      type="text"
+      name="food"
+      id="food"
+      value="<%= item.food %>"
+    >
+</li>
+<li>
+    <label for="ingredients">Ingredients:</label>
+        <input
+        type="text"
+        name="ingredients"
+        id="ingredients"
+        value="<%= item.ingredients %>"
+      />
+    </li>
+    <li>
+    <label for="seasoning">Seasoning:</label>
+    <input
+    type="text"
+    name="seasoning"
+    id="seasoning"
+    value="<%= item.seasoning %>"
+  />
+</li>
+<li>
+    <label for="drinkWith">Drink With:</label>
+    <select id="drinkWith" name="drinkWith">
+      <option
+        value="milk"
+        <%= item.drinkWith === "milk" ? "selected" : "" %>
+      >
+        Milk
+      </option>
+      <option
+        value="juice"
+        <%= item.drinkWith === "juice" ? "selected" : "" %>
+      >
+        Juice
+      </option>
+      <option
+        value="water"
+        <%= item.drinkWith === "water" ? "selected" : "" %>
+      >
+        Water
+      </option>
+    </select>
+</li>
+   
+<button type="submit">Update Item</button>
+  
+</form>
+
+</ul>
+</body>
+</html>
