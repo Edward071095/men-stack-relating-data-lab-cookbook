@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pantry stuff</title>
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1><%= selectedUser.username %>'s Pantry</h1>
+    <h2>Name: <%= selectedUser.username %></h2>
+
+    <h3>Pantry:</h3>
+        <ul>
+            <% selectedUser.pantry.forEach(item => { %>
+                <li><%= item.food %> made with
+                <%= item.ingredients %>
+                seasoned with
+                <%= item.seasoning %>
+                and its best to drink <%= item.drinkWith %> with this meal.</li>
+            <% }) %>
+        </ul>
+  </body>
+</html>

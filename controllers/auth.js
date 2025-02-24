@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 
 const User = require('../models/user.js');
 
+
 router.get('/sign-up', (req, res) => {
   res.render('auth/sign-up.ejs');
 });
@@ -72,6 +73,19 @@ router.post('/sign-in', async (req, res) => {
   
     res.redirect('/');
   } catch (error) {
+    console.log(error);
+    res.redirect('/');
+  }
+});
+
+router.get('/:userId', async (req, res) => {
+  try {
+   
+  //   const allUsers = await User.findById();
+    
+    res.render('users/show.ejs');
+  } catch (error) {
+
     console.log(error);
     res.redirect('/');
   }

@@ -28,7 +28,7 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  pantry: [pantrySchema], // embedding the applicationSchema here
+  pantry: [pantrySchema] // embedding the applicationSchema here
 
 });
 
